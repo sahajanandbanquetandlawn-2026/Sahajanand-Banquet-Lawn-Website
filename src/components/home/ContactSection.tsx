@@ -1,4 +1,6 @@
 import { useState, type FormEvent } from 'react';
+import { createPortal } from 'react-dom';
+import { supabase } from '../../lib/supabase';
 import './ContactSection.css';
 
 const ContactSection = () => {
@@ -15,11 +17,32 @@ const ContactSection = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Inquiry submitted successfully!");
-    handleClear();
+    setIsSubmitting(true);
+    
+    try {
+      const { error } = await supabase.rpc('submit_website_inquiry', {
+        p_name: formData.name,
+        p_phone: formData.phone,
+        p_event_type: formData.eventType === 'Others' ? 'Other' : formData.eventType,
+        p_other_event_type: formData.eventType === 'Others' ? formData.otherEvent : null,
+        p_event_date: formData.date
+      });
+
+      if (error) throw error;
+
+      setShowSuccessModal(true);
+      handleClear();
+    } catch (error: any) {
+      console.error("Submission error:", error);
+      alert("There was an error submitting your inquiry. Please try again or call us.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClear = () => {
@@ -125,13 +148,44 @@ const ContactSection = () => {
               </div>
 
               <div className="form-actions">
-                <button type="button" className="btn-secondary light" onClick={handleClear}>Clear</button>
-                <button type="submit" className="btn-primary">Submit Inquiry</button>
+                <button type="button" className="btn-secondary light" onClick={handleClear} disabled={isSubmitting}>Clear</button>
+                <button type="submit" className="btn-primary" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Submit Inquiry'}
+                </button>
               </div>
             </form>
           </div>
         </div>
       </div>
+
+      {showSuccessModal && createPortal(
+        <div className="success-modal-overlay animate-fade-in">
+          <div className="success-modal">
+            <button className="modal-close-icon" onClick={() => setShowSuccessModal(false)} aria-label="Close modal">×</button>
+            <h3 className="modal-title">Inquiry Submitted Successfully!</h3>
+            <p className="modal-subtitle">Thank you for reaching out. We will contact you soon.</p>
+            
+            <div className="modal-extra-info">
+              <p>For the best experience, we invite you to visit our venue in person!</p>
+              
+              <div className="modal-actions-grid">
+                <a href="https://maps.app.goo.gl/NDRziWPEeyxLJ13s8" target="_blank" rel="noopener noreferrer" className="btn-modal map-btn">
+                  Get Directions
+                </a>
+                <a href="tel:+918849641922" className="btn-modal call-btn">
+                  Call Us
+                </a>
+                <a href="https://wa.me/918849641922?text=Hi%2C%20I%20am%20interested%20in%20your%20venue.%20I%20want%20to%20know%20more%20information%20about%20it.%20Can%20you%20share%20it%3F" target="_blank" rel="noopener noreferrer" className="btn-modal wa-btn">
+                  WhatsApp Us
+                </a>
+              </div>
+            </div>
+            
+            <button className="btn-secondary modal-close-btn" onClick={() => setShowSuccessModal(false)}>Close</button>
+          </div>
+        </div>,
+        document.body
+      )}
     </section>
   );
 };

@@ -30,9 +30,9 @@ const amenities = [
 
 const AmenitiesSection = () => {
   return (
-    <section id="services" className="section amenities-section bg-primary">
+    <section id="amenities" className="section amenities-section bg-primary">
       <div className="container">
-        <h2 className="section-title">Services & Amenities</h2>
+        <h2 className="section-title">Amenities</h2>
         
         <div className="amenities-grid">
           {amenities.map((group, idx) => (
