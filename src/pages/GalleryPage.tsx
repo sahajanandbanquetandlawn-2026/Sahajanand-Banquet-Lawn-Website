@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import ImageModal from '../components/common/ImageModal';
+import SchemaMarkup from '../components/common/SchemaMarkup';
 import './GalleryPage.css';
 
 const allGalleryImages = [
@@ -16,12 +17,32 @@ const allGalleryImages = [
   "https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=80&w=2071&auto=format&fit=crop"
 ];
 
+const galleryBreadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.sahajanandbanquetandlawn.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Gallery",
+      "item": "https://www.sahajanandbanquetandlawn.com/gallery"
+    }
+  ]
+};
+
 export default function GalleryPage() {
   const [selectedImg, setSelectedImg] = useState<string | null>(null);
   const navigate = useNavigate();
 
   return (
     <div className="gallery-page">
+      <SchemaMarkup schema={galleryBreadcrumb} id="breadcrumb-gallery" />
       <div className="gallery-page-header">
         <div className="container">
           <button className="back-btn" onClick={() => navigate('/')}>
@@ -58,3 +79,4 @@ export default function GalleryPage() {
     </div>
   );
 }
+

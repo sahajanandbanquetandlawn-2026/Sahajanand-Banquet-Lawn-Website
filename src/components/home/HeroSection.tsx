@@ -14,8 +14,7 @@ const HeroSection = () => {
       </div>
       
       <div className="hero-content animate-fade-in">
-        {/* Placeholder Logo space */}
-        <div className="hero-logo-placeholder">S</div>
+        <img src="/sahajanand-logo-white.png" alt="Sahajanand Banquet & Lawn Logo" className="hero-logo" />
         <h1 className="hero-title">Sahajanand Banquet & Lawn</h1>
         <p className="hero-slogan">Elegance and Grandeur for Your Unforgettable Moments</p>
       </div>

@@ -43,18 +43,14 @@
   max-width: 900px;
 }
 
-.hero-logo-placeholder {
-  width: 80px;
-  height: 80px;
-  border: 2px solid var(--accent-gold);
-  border-radius: 50%;
-  margin: 0 auto 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  color: var(--accent-gold);
+.hero-logo {
+  width: 600px;
+  max-width: 90%;
+  height: auto;
+  margin: 0 auto -12rem;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
 }
 
 .hero-title {
