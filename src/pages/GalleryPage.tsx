@@ -41,30 +41,44 @@ export default function GalleryPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="gallery-page">
+    <div className="gallery-page-premium">
       <SchemaMarkup schema={galleryBreadcrumb} id="breadcrumb-gallery" />
-      <div className="gallery-page-header">
-        <div className="container">
-          <button className="back-btn" onClick={() => navigate('/')}>
-            <ArrowLeft size={24} />
+      
+      <div className="gallery-page-header-premium">
+        <div className="container header-container">
+          <button className="back-btn-premium" onClick={() => navigate('/')} aria-label="Go back to home page">
+            <ArrowLeft size={18} />
             <span>Back to Home</span>
           </button>
-          <h1 className="page-title">Our Grand Gallery</h1>
-          <p className="page-subtitle">A glimpse into the magical moments hosted at Sahajanand</p>
+          
+          <div className="header-text-block">
+            <span className="gallery-page-tag">Portfolio</span>
+            <h1 className="gallery-page-title">Our Grand Gallery</h1>
+            <div className="gallery-page-divider" />
+            <p className="gallery-page-subtitle">A glimpse into the magical moments and celebrations hosted at Sahajanand</p>
+          </div>
         </div>
       </div>
 
-      <div className="container" style={{ paddingBottom: '100px' }}>
-        <div className="gallery-grid">
+      <div className="container gallery-grid-container">
+        <div className="gallery-masonry-grid">
           {allGalleryImages.map((imgSrc, idx) => (
             <div 
               key={idx} 
-              className="gallery-grid-item"
+              className="gallery-grid-item-premium"
               onClick={() => setSelectedImg(imgSrc)}
             >
-              <img src={imgSrc} alt={`Gallery grid ${idx + 1}`} />
-              <div className="gallery-overlay">
-                <span className="gallery-overlay-text">Click to Zoom</span>
+              <img src={imgSrc} alt={`Celebration at Sahajanand ${idx + 1}`} className="grid-image-premium" />
+              <div className="grid-overlay-premium">
+                <div className="grid-overlay-content">
+                  <svg className="zoom-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <line x1="11" y1="8" x2="11" y2="14"></line>
+                    <line x1="8" y1="11" x2="14" y2="11"></line>
+                  </svg>
+                  <span>Expand Image</span>
+                </div>
               </div>
             </div>
           ))}
@@ -79,4 +93,3 @@ export default function GalleryPage() {
     </div>
   );
 }
-

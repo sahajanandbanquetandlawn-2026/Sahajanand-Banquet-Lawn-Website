@@ -1,10 +1,16 @@
 import './HeroSection.css';
 
 const HeroSection = () => {
+  const handleScrollToAbout = () => {
+    const element = document.getElementById('about');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="hero-section">
       <div className="hero-background">
-        {/* Using a placeholder high-quality image from Unsplash for visual premium look */}
         <img 
           src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=2098&auto=format&fit=crop" 
           alt="Luxury Banquet Background" 
@@ -13,10 +19,20 @@ const HeroSection = () => {
         <div className="hero-overlay"></div>
       </div>
       
-      <div className="hero-content animate-fade-in">
-        <img src="/sahajanand-logo-white.png" alt="Sahajanand Banquet & Lawn Logo" className="hero-logo" />
-        <h1 className="hero-title">Sahajanand Banquet & Lawn</h1>
-        <p className="hero-slogan">Elegance and Grandeur for Your Unforgettable Moments</p>
+      <div className="hero-content">
+        <div className="hero-logo-container animate-fade-in-up delay-1">
+          <img src="/sahajanand-logo-white.png" alt="Sahajanand Banquet & Lawn Logo" className="hero-logo" />
+        </div>
+        <h1 className="hero-title animate-fade-in-up delay-2">Sahajanand Banquet & Lawn</h1>
+        <div className="hero-divider animate-fade-in-up delay-3" />
+        <p className="hero-slogan animate-fade-in-up delay-4">Elegance and Grandeur for Your Unforgettable Moments</p>
+      </div>
+
+      <div className="scroll-indicator animate-fade-in delay-5" onClick={handleScrollToAbout}>
+        <div className="scroll-mouse">
+          <div className="scroll-wheel"></div>
+        </div>
+        <span className="scroll-text">Explore Venue</span>
       </div>
     </section>
   );
