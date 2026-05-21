@@ -40,7 +40,7 @@
   text-align: center;
   z-index: 1;
   color: var(--text-light);
-  padding: 0 20px;
+  padding: 0 20px 130px;
   max-width: 1000px;
   display: flex;
   flex-direction: column;
@@ -84,7 +84,7 @@
 }
 
 .hero-slogan {
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   font-weight: 300;
   letter-spacing: 4px;
   text-transform: uppercase;
@@ -191,6 +191,10 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .hero-content {
+    padding-bottom: 95px;
+  }
+
   .hero-logo {
     margin-bottom: -6rem; /* Adjust negative margin on smaller devices since logo scaled down */
   }
@@ -206,7 +210,7 @@
   }
 
   .hero-slogan {
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: 2px;
   }
 
@@ -226,6 +230,10 @@
 }
 
 @media (max-width: 480px) {
+  .hero-content {
+    padding-bottom: 85px;
+  }
+
   .hero-logo {
     margin-bottom: -4rem;
   }
@@ -235,7 +243,7 @@
   }
 
   .hero-slogan {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     letter-spacing: 1.5px;
   }
 }
