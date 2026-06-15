@@ -3,6 +3,7 @@ import Navbar from './components/layout/Navbar';
 import Home from './pages/Home';
 import GalleryPage from './pages/GalleryPage';
 import ScrollToTop from './components/common/ScrollToTop';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/gallery" element={<GalleryPage />} />
       </Routes>
+      <Analytics />
     </Router>
   );
 }
