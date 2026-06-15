@@ -93,27 +93,8 @@
   text-align: center;
   font-size: 0.75em;
   letter-spacing: 4px;
-  /* White base with a soft upward light sweep */
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.55) 0%,
-    #ffffff 35%,
-    #ffffff 65%,
-    rgba(255, 255, 255, 0.55) 100%
-  );
-  background-size: 100% 300%;
-  background-position: 0% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: none;
-  animation: subtitleLightSlide 4s ease-in-out infinite;
-}
-
-@keyframes subtitleLightSlide {
-  0%   { background-position: 0% 100%; }
-  50%  { background-position: 0%   0%; }
-  100% { background-position: 0% 100%; }
+  color: #ffffff;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .hero-divider {

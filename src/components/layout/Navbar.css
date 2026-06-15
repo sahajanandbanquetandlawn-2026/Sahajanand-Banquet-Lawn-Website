@@ -40,7 +40,7 @@
   transition: opacity 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
 }
 
 .nav-brand:hover {
@@ -48,11 +48,29 @@
 }
 
 .nav-logo {
-  height: 58px;
+  height: 75px;
   width: auto;
   object-fit: contain;
   display: block;
   vertical-align: middle;
+  transform: translateY(3px);
+  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar.scrolled .nav-logo {
+  height: 62px;
+  transform: translateY(2px);
+}
+
+@media (max-width: 768px) {
+  .nav-logo {
+    height: 60px;
+    transform: translateY(2px);
+  }
+  .navbar.scrolled .nav-logo {
+    height: 52px;
+    transform: translateY(1.5px);
+  }
 }
 
 .nav-links-desktop {
