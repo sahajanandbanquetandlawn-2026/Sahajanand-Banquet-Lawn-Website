@@ -25,7 +25,10 @@ const HeroSection = () => {
         <div className="hero-logo-container animate-fade-in-up delay-1">
           <img src="/sahajanand-logo-white.png" alt="Sahajanand Banquet & Lawn Logo" className="hero-logo" />
         </div>
-        <h1 className="hero-title animate-fade-in-up delay-2">Sahajanand Banquet & Lawn</h1>
+        <h1 className="hero-title animate-fade-in-up delay-2">
+          <span className="hero-title-main">Sahajanand</span>
+          <span className="hero-title-sub">Banquet &amp; Lawn</span>
+        </h1>
         <div className="hero-divider animate-fade-in-up delay-3" />
         <p className="hero-slogan animate-fade-in-up delay-4">Elegance and Grandeur for Your Unforgettable Moments</p>
       </div>

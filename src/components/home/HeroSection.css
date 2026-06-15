@@ -74,12 +74,30 @@
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 1.5rem;
-  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   letter-spacing: 2px;
-  background: linear-gradient(to bottom, #ffffff 60%, #f272ab 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15em;
+}
+
+.hero-title-main {
+  color: #ffffff;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: block;
+  text-align: center;
+}
+
+.hero-title-sub {
+  display: block;
+  text-align: center;
+  font-size: 0.75em;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, #f272ab 0%, #b3366c 60%, #f272ab 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: none;
 }
 
 .hero-divider {
