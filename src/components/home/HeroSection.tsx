@@ -30,10 +30,7 @@ const HeroSection = () => {
           <span className="hero-title-sub">Banquet &amp; Lawn</span>
         </h1>
         <div className="hero-divider animate-fade-in-up delay-3" />
-        <div className="hero-slogan-wrapper animate-fade-in-up delay-4">
-          <p className="hero-slogan">Elegance and Grandeur for Your Unforgettable Moments</p>
-          <div className="slogan-shimmer"></div>
-        </div>
+        <p className="hero-slogan animate-fade-in-up delay-4">Elegance and Grandeur for Your Unforgettable Moments</p>
       </div>
 
       <div className="scroll-indicator animate-fade-in delay-5" onClick={handleScrollToAbout}>
