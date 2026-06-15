@@ -58,7 +58,8 @@ const Navbar = () => {
         <div className="nav-container">
           {/* Logo or brand name on left for mobile context */}
           <div className="nav-brand" onClick={() => handleLinkClick('home')}>
-            Sahajanand
+            <img src="/sahajanand-logo-white.png" alt="Sahajanand Logo" className="nav-logo" />
+            <span>Sahajanand</span>
           </div>
 
           <div className="nav-links-desktop">

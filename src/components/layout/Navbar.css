@@ -38,10 +38,19 @@
   color: var(--text-light);
   cursor: pointer;
   transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .nav-brand:hover {
   opacity: 0.9;
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-links-desktop {
