@@ -13,7 +13,7 @@ const AboutSection = () => {
               Welcome to Sahajanand Banquet & Lawn, the perfect venue in Vadodara for all your celebrations, from weddings and receptions to corporate events.
             </p>
             <p className="about-text-body">
-              We offer a spacious lush green lawn and a fully air-conditioned banquet hall, complete with dedicated event management, catering, and decorations. With prime amenities like ample parking, power backup, and a convenient location, we ensure your outdoor or indoor events are seamless and unforgettable.
+              We offer a spacious lush green lawn and a fully air-conditioned banquet hall, complete with dedicated event management, catering, and decorations. With prime amenities like generous parking, power backup, and a convenient location, we ensure your outdoor or indoor events are seamless and unforgettable.
             </p>
             
             <div className="about-stats-grid">
@@ -26,7 +26,7 @@ const AboutSection = () => {
                 <span className="stat-label">Green Outdoor Lawn</span>
               </div>
               <div className="about-stat-item">
-                <span className="stat-number">Ample</span>
+                <span className="stat-number">Spacious</span>
                 <span className="stat-label">Secure Parking Area</span>
               </div>
             </div>

@@ -8,8 +8,11 @@
   --text-primary: #1c1c1c;
   --text-secondary: #4a4a4a;
   --text-light: #ffffff;
-  --accent-gold: #c5a059;
-  --accent-gold-hover: #b08d4f;
+  --accent-gold: #771d3e;
+  --accent-gold-hover: #52142b;
+  --shiny-pink-gradient: linear-gradient(135deg, #b3366c 0%, #771d3e 100%);
+  --shiny-pink-gradient-hover: linear-gradient(135deg, #d84b84 0%, #52142b 100%);
+  --shiny-pink-glow: 0 0 15px rgba(179, 54, 108, 0.45);
   
   /* Typography */
   --font-heading: 'Playfair Display', serif;

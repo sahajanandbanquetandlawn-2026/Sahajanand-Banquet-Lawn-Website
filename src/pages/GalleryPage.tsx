@@ -37,7 +37,7 @@ const galleryBreadcrumb = {
 };
 
 export default function GalleryPage() {
-  const [selectedImg, setSelectedImg] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const navigate = useNavigate();
 
   return (
@@ -46,7 +46,7 @@ export default function GalleryPage() {
       
       <div className="gallery-page-header-premium">
         <div className="container header-container">
-          <button className="back-btn-premium" onClick={() => navigate('/')} aria-label="Go back to home page">
+          <button className="back-btn-premium" onClick={() => navigate('/', { state: { scrollGalleryToContact: true } })} aria-label="Go back to gallery section">
             <ArrowLeft size={18} />
             <span>Back to Home</span>
           </button>
@@ -66,7 +66,7 @@ export default function GalleryPage() {
             <div 
               key={idx} 
               className="gallery-grid-item-premium"
-              onClick={() => setSelectedImg(imgSrc)}
+              onClick={() => setSelectedIndex(idx)}
             >
               <img src={imgSrc} alt={`Celebration at Sahajanand ${idx + 1}`} className="grid-image-premium" />
               <div className="grid-overlay-premium">
@@ -86,9 +86,12 @@ export default function GalleryPage() {
       </div>
 
       <ImageModal 
-        isOpen={!!selectedImg} 
-        onClose={() => setSelectedImg(null)} 
-        imageSrc={selectedImg || ''} 
+        isOpen={selectedIndex !== null} 
+        onClose={() => setSelectedIndex(null)} 
+        imageSrc={selectedIndex !== null ? allGalleryImages[selectedIndex] : ''}
+        images={allGalleryImages}
+        currentIndex={selectedIndex ?? 0}
+        onNavigate={(idx) => setSelectedIndex(idx)}
       />
     </div>
   );

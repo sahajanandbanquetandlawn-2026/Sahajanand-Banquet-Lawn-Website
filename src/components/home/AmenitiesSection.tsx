@@ -1,4 +1,4 @@
-import { Utensils, Music, Wifi, Car, Sun, Wind, CheckCircle2, ShieldCheck, GlassWater } from 'lucide-react';
+import { Utensils, Speaker, Wifi, Car, Sun, Wind, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 import './AmenitiesSection.css';
 
 const amenities = [
@@ -7,14 +7,14 @@ const amenities = [
     items: [
       { id: 'b1', name: 'Central AC', icon: <Wind size={28} />, desc: 'Fully air-conditioned halls' },
       { id: 'b2', name: 'Premium Catering', icon: <Utensils size={28} />, desc: 'Multi-cuisine premium food' },
-      { id: 'b3', name: 'Acoustic Sound', icon: <Music size={28} />, desc: 'State-of-the-art sound systems' },
+      { id: 'b3', name: 'Quality Sound', icon: <Speaker size={28} />, desc: 'Clear, reliable audio setup' },
     ]
   },
   {
     category: "Lawn Amenities",
     items: [
       { id: 'l1', name: 'Open Skies', icon: <Sun size={28} />, desc: 'Lush green open landscape' },
-      { id: 'l2', name: 'Ambient Lighting', icon: <GlassWater size={28} />, desc: 'Cinematic outdoor lighting' },
+      { id: 'l2', name: 'Ambient Lighting', icon: <Sparkles size={28} />, desc: 'Cinematic outdoor lighting' },
       { id: 'l3', name: 'Flexible Seating', icon: <CheckCircle2 size={28} />, desc: 'Customizable arrangements' },
     ]
   },

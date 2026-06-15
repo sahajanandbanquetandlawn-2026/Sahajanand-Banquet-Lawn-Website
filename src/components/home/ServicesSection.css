@@ -16,9 +16,13 @@
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: var(--accent-gold);
   font-weight: 600;
   margin-bottom: 0.75rem;
+  background: var(--shiny-pink-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 .services-title-premium {
@@ -32,7 +36,7 @@
 .services-header-divider {
   width: 60px;
   height: 2px;
-  background-color: var(--accent-gold);
+  background: var(--shiny-pink-gradient);
 }
 
 /* Service Block Layout */
@@ -58,7 +62,13 @@
   border-radius: 8px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   height: 480px;
-  border: 1px solid rgba(197, 160, 89, 0.15);
+  border: 1px solid rgba(119, 29, 62, 0.15);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-image-wrapper:hover {
+  border-color: rgba(179, 54, 108, 0.4);
+  box-shadow: var(--shiny-pink-glow), 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .service-image-overlay {
@@ -93,9 +103,13 @@
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--accent-gold);
   font-weight: 600;
   margin-bottom: 0.75rem;
+  background: var(--shiny-pink-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 .service-heading {
@@ -132,8 +146,13 @@
 .feature-bullet {
   width: 18px;
   height: 18px;
-  color: var(--accent-gold);
+  stroke: url(#shiny-pink-grad);
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.service-features li:hover .feature-bullet {
+  transform: scale(1.2);
 }
 
 /* Responsive design */

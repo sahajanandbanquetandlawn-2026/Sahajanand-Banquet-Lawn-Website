@@ -37,10 +37,6 @@
   letter-spacing: 1.5px;
   color: var(--text-light);
   cursor: pointer;
-  background: linear-gradient(135deg, #fff, #c5a059);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   transition: opacity 0.3s ease;
 }
 

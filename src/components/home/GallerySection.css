@@ -17,9 +17,13 @@
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: var(--accent-gold);
   font-weight: 600;
   margin-bottom: 0.75rem;
+  background: var(--shiny-pink-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 .gallery-title-text {
@@ -33,26 +37,36 @@
 .gallery-header-divider {
   width: 60px;
   height: 2px;
-  background-color: var(--accent-gold);
+  background: var(--shiny-pink-gradient);
 }
 
+/* ─── Scroll Wrapper (holds arrows + scroll container) ─── */
+.gallery-scroll-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ─── Scroll Container ─── */
 .gallery-scroll-container-premium {
   width: 100%;
-  overflow: hidden;
-  position: relative;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
-/* Horizontal scrolling wrapper */
+.gallery-scroll-container-premium::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Horizontal content */
 .gallery-scroll-content-premium {
   display: flex;
   gap: 2rem;
   padding: 1.5rem 5vw;
   width: max-content;
-  animation: scrollGalleryPremium 50s linear infinite;
-}
-
-.gallery-scroll-container-premium:hover .gallery-scroll-content-premium {
-  animation-play-state: paused;
 }
 
 .gallery-image-wrapper-premium {
@@ -102,7 +116,8 @@
 }
 
 .gallery-overlay-box {
-  border: 1px solid rgba(197, 160, 89, 0.5);
+  border: 1px solid transparent;
+  border-image: var(--shiny-pink-gradient) 1;
   width: 100%;
   height: 100%;
   border-radius: 4px;
@@ -120,7 +135,7 @@
 }
 
 .zoom-icon {
-  color: var(--accent-gold);
+  stroke: url(#shiny-pink-grad);
   transition: transform 0.3s ease;
 }
 
@@ -145,7 +160,7 @@
 .premium-cta-btn {
   background-color: transparent;
   color: var(--text-primary);
-  border: 1px solid var(--text-primary);
+  border: 1px solid var(--accent-gold);
   padding: 14px 40px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -165,27 +180,65 @@
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: var(--text-primary);
+  background: var(--shiny-pink-gradient);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: -1;
 }
 
 .premium-cta-btn:hover {
   color: var(--text-light);
+  border-color: transparent;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shiny-pink-glow), 0 10px 20px rgba(119, 29, 62, 0.15);
 }
 
 .premium-cta-btn:hover::before {
   width: 100%;
 }
 
-@keyframes scrollGalleryPremium {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 1rem)); }
+
+/* ─── Scroll Navigation Arrows ─── */
+.gallery-scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive spacing */
+.gallery-scroll-arrow:hover {
+  background: var(--shiny-pink-gradient);
+  color: #fff;
+  border-color: transparent;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: var(--shiny-pink-glow), 0 6px 25px rgba(119, 29, 62, 0.25);
+}
+
+.gallery-scroll-arrow--left {
+  left: 16px;
+}
+
+.gallery-scroll-arrow--right {
+  right: 16px;
+}
+
+
+/* ═══════════════════════════════════════════ */
+/*  RESPONSIVE                                 */
+/* ═══════════════════════════════════════════ */
+
 @media (max-width: 992px) {
   .gallery-section-premium {
     padding: 80px 0;
@@ -199,15 +252,9 @@
     width: 320px;
     height: 400px;
   }
-  
-  /* Touch friendly gesture instead of fast infinite scroll on mobile devices */
-  .gallery-scroll-container-premium {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .gallery-scroll-content-premium {
-    animation: none; /* Disable scroll animation for better control on touch screens */
+
+  .gallery-scroll-arrow {
+    display: none;
   }
 }
 

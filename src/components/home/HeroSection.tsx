@@ -1,3 +1,4 @@
+import HeroStars from './HeroStars';
 import './HeroSection.css';
 
 const HeroSection = () => {
@@ -17,6 +18,7 @@ const HeroSection = () => {
           className="hero-image"
         />
         <div className="hero-overlay"></div>
+        <HeroStars />
       </div>
       
       <div className="hero-content">

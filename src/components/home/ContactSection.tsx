@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef, useEffect, type FormEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { supabase } from '../../lib/supabase';
+import MapSection from './MapSection';
 import './ContactSection.css';
 
 /* ─── Confetti Particle System ─── */
@@ -19,7 +20,7 @@ interface Particle {
 }
 
 const CONFETTI_COLORS = [
-  '#c5a059', '#e8c97a', '#f5d98e', '#fff8e7',  // golds
+  '#771d3e', '#f272ab', '#f9a8d4', '#fff0f5',  // golds
   '#ff6b6b', '#ee5a24', '#f39c12',              // warm
   '#6c5ce7', '#a29bfe', '#fd79a8',              // purple/pink
   '#00cec9', '#55efc4', '#81ecec',              // teal
@@ -239,16 +240,73 @@ const ContactSection = () => {
       <div className="container">
         <div className="contact-wrapper">
           <div className="contact-info">
-            <h2 className="section-title dark" style={{ textAlign: 'left', marginBottom: '1rem' }}>Contact Us</h2>
+            <h2 className="section-title" style={{ textAlign: 'left', marginBottom: '1rem', color: '#1c1c1c' }}>Contact Us</h2>
             <p className="contact-desc">
               Ready to make your event unforgettable? Reach out to us for bookings, 
               inquiries, or simply to take a tour of our magnificent venue.
             </p>
             <div className="contact-details">
-              <p><strong>Address:</strong> near Shree Siddheshwar Happyllife, Overbridge, Darbar Chokdi, Manjalpur, Vadodara, Gujarat 390011</p>
-              <p><strong>Timings:</strong> Mon-Sun, 10 AM - 12 PM & 5 PM - 7 PM</p>
-              <p><strong>Phone:</strong> <a href="tel:+918849641922">+91 88496 41922</a></p>
-              <p><strong>Email:</strong> sahajanandbanquetandlawn@gmail.com</p>
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div className="contact-text">
+                  <strong>Address</strong>
+                  <span>Near Shree Siddheshwar Happy Life, Manjalpur-Atladra Overbridge, Manjalpur, Vadodara, Gujarat, India 390011</span>
+                </div>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <div className="contact-text">
+                  <strong>Visiting Hours</strong>
+                  <div className="timing-info">
+                    <div className="timing-slots">
+                      <div className="timing-slot">
+                        <span className="slot-label">Morning:</span>
+                        <span className="slot-time">10:30 AM – 12:30 PM</span>
+                      </div>
+                      <div className="timing-slot">
+                        <span className="slot-label">Evening:</span>
+                        <span className="slot-time">06:00 PM – 08:30 PM</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div className="contact-text">
+                  <strong>Phone</strong>
+                  <a href="tel:+918849641922">+91 88496 41922</a>
+                </div>
+              </div>
+
+              <div className="contact-item">
+                <div className="contact-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </div>
+                <div className="contact-text">
+                  <strong>Email</strong>
+                  <a href="mailto:sahajanandbanquetandlawn@gmail.com">sahajanandbanquetandlawn@gmail.com</a>
+                </div>
+              </div>
             </div>
           </div>
           
@@ -327,7 +385,7 @@ const ContactSection = () => {
               </div>
 
               <div className="form-actions">
-                <button type="button" className="btn-secondary light" onClick={handleClear} disabled={isSubmitting}>Clear</button>
+                <button type="button" className="btn-secondary" onClick={handleClear} disabled={isSubmitting}>Clear</button>
                 <button 
                   ref={submitBtnRef}
                   type="submit" 
@@ -354,6 +412,9 @@ const ContactSection = () => {
             </form>
           </div>
         </div>
+
+        {/* Google Maps — Find Us */}
+        <MapSection />
       </div>
 
       {/* Confetti overlay */}

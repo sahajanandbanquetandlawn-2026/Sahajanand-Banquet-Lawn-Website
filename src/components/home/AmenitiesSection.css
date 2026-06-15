@@ -17,9 +17,13 @@
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: var(--accent-gold);
   font-weight: 600;
   margin-bottom: 0.75rem;
+  background: var(--shiny-pink-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 .amenities-title-text {
@@ -31,9 +35,9 @@
 }
 
 .amenities-header-divider {
-  width: 60px;
+  width: 120px;
   height: 2px;
-  background-color: var(--accent-gold);
+  background: linear-gradient(90deg, transparent 0%, #b3366c 50%, transparent 100%);
 }
 
 /* Groups Layout */
@@ -69,7 +73,7 @@
   content: '';
   height: 1px;
   flex-grow: 1;
-  background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.3) 50%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(179, 54, 108, 0.3) 50%, transparent);
   max-width: 250px;
 }
 
@@ -77,6 +81,11 @@
   position: relative;
   z-index: 1;
   padding: 0 10px;
+  background: var(--shiny-pink-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 /* Items Grid */
@@ -94,7 +103,7 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(119, 29, 62, 0.08);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -109,7 +118,6 @@
 }
 
 .amenity-icon-container {
-  color: var(--accent-gold);
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -117,9 +125,14 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: rgba(197, 160, 89, 0.05);
-  border: 1px solid rgba(197, 160, 89, 0.15);
+  background-color: rgba(179, 54, 108, 0.05);
+  border: 1px solid rgba(179, 54, 108, 0.15);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.amenity-icon-container svg {
+  stroke: url(#shiny-pink-grad);
+  transition: transform 0.3s ease;
 }
 
 .amenity-name-text {
@@ -142,7 +155,7 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+  background: linear-gradient(90deg, transparent, #b3366c, #771d3e, transparent);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -150,8 +163,8 @@
 /* Hover effects */
 .amenity-card-premium:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(197, 160, 89, 0.08);
-  border-color: rgba(197, 160, 89, 0.3);
+  box-shadow: var(--shiny-pink-glow), 0 20px 40px rgba(119, 29, 62, 0.08);
+  border-color: rgba(179, 54, 108, 0.25);
 }
 
 .amenity-card-premium:hover .card-top-glow {
@@ -159,11 +172,14 @@
 }
 
 .amenity-card-premium:hover .amenity-icon-container {
-  background-color: var(--accent-gold);
-  color: var(--bg-primary);
-  border-color: var(--accent-gold);
+  background: var(--shiny-pink-gradient);
+  border-color: transparent;
   transform: scale(1.08);
-  box-shadow: 0 10px 20px rgba(197, 160, 89, 0.25);
+  box-shadow: var(--shiny-pink-glow), 0 10px 20px rgba(119, 29, 62, 0.15);
+}
+
+.amenity-card-premium:hover .amenity-icon-container svg {
+  stroke: #ffffff;
 }
 
 /* Responsive grid */
