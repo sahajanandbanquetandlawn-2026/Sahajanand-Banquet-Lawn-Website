@@ -1,0 +1,182 @@
+.pwa-install-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  width: 340px;
+  max-width: calc(100vw - 48px);
+  animation: pwaSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.pwa-install-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(179, 54, 108, 0.3); /* Brand pink border accent */
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5),
+              0 0 20px 0 rgba(179, 54, 108, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #f8fafc;
+}
+
+.pwa-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pwa-close-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+}
+
+.pwa-icon-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.pwa-app-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pwa-app-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pwa-sparkle {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: linear-gradient(135deg, #f59e0b, #d97706); /* gold accent */
+  border-radius: 50%;
+  padding: 4px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.4);
+  animation: pwaPulse 2s infinite ease-in-out;
+}
+
+.pwa-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: #f8fafc;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.pwa-content p {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+}
+
+.pwa-install-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #b3366c 0%, #771d3e 100%);
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 10px 18px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(179, 54, 108, 0.3);
+}
+
+.pwa-install-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(179, 54, 108, 0.45);
+  background: linear-gradient(135deg, #c93d7b 0%, #8c2249 100%);
+}
+
+.pwa-install-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(179, 54, 108, 0.3);
+}
+
+@keyframes pwaSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pwaPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive adjustment for mobile screen */
+@media (max-width: 480px) {
+  .pwa-install-container {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 16px;
+    animation: pwaSlideUpMobile 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .pwa-install-card {
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes pwaSlideUpMobile {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
